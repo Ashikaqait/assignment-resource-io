@@ -15,6 +15,7 @@ import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.omg.CORBA.portable.InputStream;
 
 /**
  *
@@ -32,6 +33,8 @@ public class TeamsJsonReader{
      */
 	public TeamsJsonReader() {
 		try {
+		//	InputStream in = (InputStream) TeamsJsonReader.class.getResourceAsStream("/Resources/db.json");
+			
 			FileReader fr = new FileReader(new File("C:\\Users\\ashikasrivastava\\Downloads\\assignment-resource-io-master\\assignment-resource-io-master\\src\\test\\resources\\db.json"));
 			JSONParser parser = new JSONParser();
 			Object ob = parser.parse(fr);
@@ -183,19 +186,18 @@ public class TeamsJsonReader{
     public List<Individual> getListOfInactiveIndividuals(){
        // throw new UnsupportedOperationException("Not implemented.");
 
-    	List<Individual> list1 = new ArrayList<Individual>();
+    	List<Individual> list11 = new ArrayList<Individual>();
     	Individual ind = null;
 		Iterator<Individual> itr = list1.iterator();
 		while (itr.hasNext()) {
-			System.out.println("yo");
-		    ind = itr.next();
+					    ind = itr.next();
 			Boolean a = false;
 			Boolean b = ind.isActive();
 			if (a == b) {
-				list1.add(ind);
+				list11.add(ind);
 			}}
 		
-		return list1;
+		return list11;
 
 	}
     
@@ -208,7 +210,7 @@ public class TeamsJsonReader{
     public List<Individual> getListOfActiveIndividuals(){
     	
        // throw new UnsupportedOperationException("Not implemented.");
-    	List<Individual> list1 = new ArrayList<Individual>();
+    	List<Individual> list12 = new ArrayList<Individual>();
   
 		Iterator<Individual> itr = list1.iterator();
 	//	System.out.println("yo");
@@ -219,11 +221,11 @@ public class TeamsJsonReader{
 			Boolean b = ind.isActive();
 		  	
 			if (a == b) {
-				list1.add(ind);
+				list12.add(ind);
 			}
 
 		}
-		return list1;
+		return list12;
 
 		
 
